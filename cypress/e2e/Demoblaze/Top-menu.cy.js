@@ -4,7 +4,7 @@ describe('Testing Demoblaze - Top Menu', () => {
       cy.visit('https://demoblaze.com/index.html')
     })
 
-    it('Testing Demoblaze - Verify Home Funtionality', () => {
+    it('Verify Home Funtionality', () => {
         cy.window().then(w => w.beforeReload = true)
         cy.window().should('have.prop', 'beforeReload')
         cy.xpath('//*[@id="navbarExample"]/ul/li[1]/a').click()
@@ -12,7 +12,7 @@ describe('Testing Demoblaze - Top Menu', () => {
       })
 
     
-      it('Testing Demoblaze - Verify Contact Funtionality', () => {
+      it('Verify Contact Funtionality', () => {
         cy.window().then(w => w.beforeReload = true)
         cy.window().should('have.prop', 'beforeReload')
         cy.xpath('//*[@id="navbarExample"]/ul/li[2]/a').click()
@@ -27,7 +27,7 @@ describe('Testing Demoblaze - Top Menu', () => {
         cy.window().should('not.have.prop', 'beforeReload')
       })
 
-      it('Testing Demoblaze - Verify About us Funtionality', () => {
+      it('Verify About us Funtionality', () => {
         cy.xpath("//a[@class='nav-link'][contains(.,'About us')]").click()
         cy.wait(1000)
         cy.get('#videoModal').should('be.visible')
@@ -40,7 +40,7 @@ describe('Testing Demoblaze - Top Menu', () => {
          }); 
       })
 
-      it('Testing Demoblaze - Verify Cart Funtionality', () => {
+      it('Verify Cart Funtionality', () => {
         cy.xpath("//h2[contains(.,'Products')]").should('not.exist')
         cy.xpath("//a[@class='nav-link'][contains(.,'Cart')]").click()
         cy.wait(1000)

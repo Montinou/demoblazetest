@@ -4,7 +4,7 @@ describe('Testing Demoblaze - Login/Logout', () => {
       cy.visit('https://demoblaze.com/index.html')
     })
 
-    it('Testing Demoblaze - Login', () => {
+    it('Login', () => {
         cy.get('#login2').click()
         cy.wait(500)
         cy.get('#loginusername').type('test')
@@ -14,7 +14,7 @@ describe('Testing Demoblaze - Login/Logout', () => {
         cy.get('#nameofuser').contains('Welcome test')
       })
 
-      it('Testing Demoblaze - Logout', () => {
+      it('Logout', () => {
         var logged = true
         cy.get('#login2').click()
         cy.wait(500)
@@ -51,7 +51,7 @@ describe('Testing Demoblaze - Login/Logout', () => {
         }
     })
 
-      it('Testing Demoblaze - Login fail test', () => {
+      it('Login fail test', () => {
         var logged = true
         cy.get('#login2').click()
         cy.wait(500)

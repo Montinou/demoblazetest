@@ -4,7 +4,7 @@ describe('Testing Demoblaze - Shopping Cart', () => {
       cy.visit('https://demoblaze.com/index.html')
     })
 
-    it('Verificar la funcionalidad del carrito', () => {
+    it('Adding product to cart', () => {
         cy.get(':nth-child(1) > .card > .card-block > .card-title > .hrefch').click()
         cy.get('.col-sm-12 > .btn').click()
         cy.get('#cartur').click()
@@ -16,7 +16,7 @@ describe('Testing Demoblaze - Shopping Cart', () => {
         cy.get('#totalp').should('contain', '360')
       })
 
-      it('Verificar realizacion de la orden', () => {
+      it('Adding and finish the order', () => {
           cy.get(':nth-child(1) > .card > .card-block > .card-title > .hrefch').click()
           cy.get('.col-sm-12 > .btn').click()
           cy.get('#cartur').click()
