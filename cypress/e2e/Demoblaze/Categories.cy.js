@@ -4,7 +4,7 @@ describe('Testing Demoblaze - Changing categories', () => {
       cy.visit('https://demoblaze.com/index.html')
     })
 
-    it('Selecting phone test', () => {
+    it('Selecting Phones test', () => {
         cy.intercept('POST','https://api.demoblaze.com/bycat')
        .as('categories')
         cy.xpath("//a[@href='#'][contains(.,'Phones')]").click()
@@ -14,10 +14,9 @@ describe('Testing Demoblaze - Changing categories', () => {
         )}
         )
 
-        it('Selecting phone test', () => {
+        it('Selecting Laptops test', () => {
             cy.intercept('POST','https://api.demoblaze.com/bycat')
            .as('categories')
-            var counter = 0
             cy.xpath( "//a[@href='#'][contains(.,'Laptops')]").click()
             cy.wait('@categories').its('response.body.Items').each((item) =>{
               expect(item.cat).to.eq('notebook')
@@ -25,10 +24,9 @@ describe('Testing Demoblaze - Changing categories', () => {
             )}
             )
 
-        it('Selecting Laptops test', () => {
+        it('Selecting Monitors test', () => {
             cy.intercept('POST','https://api.demoblaze.com/bycat')
             .as('categories')
-            var counter = 0
             cy.xpath("//a[@href='#'][contains(.,'Monitors')]").click()
              cy.wait('@categories').its('response.body.Items').each((item) =>{
                   expect(item.cat).to.eq('monitor')
