@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import 'cypress-iframe'
 describe('Testing Demoblaze - Shopping Cart', () => {
     beforeEach(() => {
@@ -33,7 +34,4 @@ describe('Testing Demoblaze - Shopping Cart', () => {
           cy.get('.btn-primary').contains('Purchase').click()
           cy.get('.sweet-alert').contains('Thank you for your purchase!')
         })
-
-
-
 })

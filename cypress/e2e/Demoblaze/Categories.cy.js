@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import 'cypress-iframe'
 describe('Testing Demoblaze - Changing categories', () => {
     beforeEach(() => {

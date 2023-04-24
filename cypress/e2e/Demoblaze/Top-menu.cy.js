@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import 'cypress-iframe'
 describe('Testing Demoblaze - Top Menu', () => {
     beforeEach(() => {
