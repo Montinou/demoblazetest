@@ -17,6 +17,6 @@
 import './commands'
 import 'cypress-iframe'
 require('cypress-xpath')
-
+require("cypress-plugin-tab");
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

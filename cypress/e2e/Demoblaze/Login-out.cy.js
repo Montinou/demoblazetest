@@ -1,5 +1,6 @@
 /// <reference types="cypress" />
 import 'cypress-iframe'
+import "cypress-xpath"
 describe('Testing Demoblaze - Login/Logout', () => {
     beforeEach(() => {
       cy.visit('https://demoblaze.com/index.html')
@@ -13,15 +14,23 @@ describe('Testing Demoblaze - Login/Logout', () => {
         cy.get('#logInModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary').click()
         cy.wait(3000)
         cy.get('#nameofuser').contains('Welcome test')
+        cy.get('#logout2')
+        .should('be.visible')
+        .click()
+      })
+      it('Login2', () => {
+       cy.login('test','test')
+       cy.get('#logout2')
+        .should('be.visible')
       })
 
-      it('Logout', () => {
-        var logged = true
+    it('Logout', () => {
+        let logged = true
         cy.get('#login2').click()
         cy.wait(500)
         cy.get('#loginusername').type('test')
         cy.get('#loginpassword').type('test')
-        cy.get('#logInModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary')
+        cy.xpath("//button[@type='button'][contains(.,'Log in')]")
         .should('be.visible')
         .click()
         cy.wait(3000)
@@ -30,27 +39,22 @@ describe('Testing Demoblaze - Login/Logout', () => {
         .click()
         cy.wait(3000)
         cy.get('#nameofuser').should('not.be.visible')
-        while (logged = true)
+        while (logged == true)
         {
-            if (cy.get('#nameofuser').should('not.exist')){
-            logged = false
-            cy.log('aca 1')
-            }
-            else {
-                if (cy.get('#nameofuser').should('not.be.visible')){
-                    logged = false
-                    console.log('aca 2')
+            if (cy.get('#nameofuser').should('not.be.visible')){
+                logged = false
+                
                 }
                 else {
                     console.log('no funciona')
-                    logged = false
                     return
                 }
-            }
+            }}
+)
 
 
-        }
-    })
+        
+    
 
       it('Login fail test', () => {
         var logged = true
@@ -58,26 +62,20 @@ describe('Testing Demoblaze - Login/Logout', () => {
         cy.wait(500)
         cy.get('#loginusername').type('test')
         cy.get('#loginpassword').type('test2')
-        cy.get('#logInModal > .modal-dialog > .modal-content > .modal-footer > .btn-primary')
+        cy.xpath("//button[@type='button'][contains(.,'Log in')]")
         .should('be.visible')
         .click()
         cy.wait(3000)
         cy.get('#nameofuser').should('not.be.visible')
-        while (logged = true)
+        while (logged == true)
         {
-            if (cy.get('#nameofuser').should('not.exist')){
+            if (cy.get('#nameofuser').should('not.be.visible')){
             logged = false
-            console.log('aca 3')
+            
             }
             else {
-                if (cy.get('#nameofuser').should('not.be.visible')){
-                    logged = false
-                    console.log('aca 4')
-                }
-                else {
-                    console.log('no funciona')
-                    return
-                }
+                console.log('no funciona')
+                return
             }
         }
      
